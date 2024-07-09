@@ -1,0 +1,23 @@
+public class PascalTrianglePattern {
+    public static void main(String[] args) {
+        int n = 5; 
+        printPascalTriangle(n);
+    }    
+    public static void printPascalTriangle(int n) {
+        int[][] triangle = new int[n][n];  
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                System.out.print("\t");
+            }
+            for (int j = 0; j <= i; j++) {
+                if (j == 0 || j == i) {
+                    triangle[i][j] = 1;
+                } else {
+                    triangle[i][j] = triangle[i-1][j-1] + triangle[i-1][j];
+                }
+                System.out.print(triangle[i][j] + "\t\t");
+            }
+            System.out.println();
+        }
+    }
+}

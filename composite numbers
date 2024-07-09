@@ -1,0 +1,48 @@
+public class CompositeNumbers {
+    public static void main(String[] args) {
+        double[] array1 = {16, 18, 27, 16, 23, 21, 19};
+        double[] array2 = {26, 28, 37, 26, 33, 31, 29};
+        double[] array3 = {1.6, 1.8, 2.7, 1.6, 2.3, 2.1, 0.19};
+        double[] array4 = {0, 160, 180, 270, 160, 230, 210, 190, 0};
+        double[] array5 = {200, 180, 180, 270, 270, 270, 190, 200};
+        double[] array6 = {100, 100, 100, 100, 100, 100, 100, 100};
+        printCompositeCount(array1);
+        printCompositeCount(array2);
+        printCompositeCount(array3);
+        printCompositeCount(array4);
+        printCompositeCount(array5);
+        printCompositeCount(array6);
+    }
+    public static void printCompositeCount(double[] array) {
+        System.out.println("Array: " + Arrays.toString(array));
+        System.out.println("Number of Composite Numbers = " + countComposites(array));
+        System.out.println();
+    }
+    public static int countComposites(double[] array) {
+        int count = 0;
+        for (double num : array) {
+            if (isComposite(num)) {
+                count++;
+            }
+        }
+        return count;
+    }
+    public static boolean isComposite(double num) {
+        if (num <= 1 || num != (int) num) {
+            return false;
+        }
+        int n = (int) num;
+        if (n <= 3) {
+            return false;
+        }
+        if (n % 2 == 0 || n % 3 == 0) {
+            return true;
+        }
+        for (int i = 5; i * i <= n; i += 6) {
+            if (n % i == 0 || n % (i + 2) == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+}

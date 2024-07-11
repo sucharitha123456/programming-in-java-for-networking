@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class Factorial {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the value of N: ");
+        String input = scanner.next();
+        try {
+            int N = Integer.parseInt(input);
+            if (N < 0) {
+                System.out.println("Factorial is not defined for negative numbers.");
+            } else {
+                long factorial = calculateFactorial(N);
+                System.out.println(N + " Factorial = " + factorial);
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a valid integer.");
+        }
+        scanner.close();
+    }
+    public static long calculateFactorial(int n) {
+        long factorial = 1;
+        for (int i = 1; i <= n; i++) {
+            factorial *= i;
+        }
+        return factorial;
+    }
+}

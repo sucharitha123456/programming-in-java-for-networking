@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class EvenIndexedFibonacciSum {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the n value: ");
+        int n = scanner.nextInt();
+        if (n < 0) {
+            System.out.println("Please enter a non-negative integer.");
+        } else {
+            int sum = calculateEvenIndexedFibonacciSum(n);
+            System.out.println("Sum of numbers at even indexes: " + sum);
+        }
+        scanner.close();
+    }
+    public static int calculateEvenIndexedFibonacciSum(int n) {
+        int sum = 0;
+        int first = 0, second = 1;
+        for (int i = 0; i <= 2 * n; i++) {
+            if (i % 2 == 0) {
+                sum += first;
+            }
+            int next = first + second;
+            first = second;
+            second = next;
+        }
+        return sum;
+    }
+}

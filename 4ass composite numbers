@@ -1,0 +1,42 @@
+import java.util.Scanner;
+public class CompositeNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the value of A: ");
+        int A = scanner.nextInt();
+        System.out.print("Enter the value of B: ");
+        int B = scanner.nextInt();
+        if (A > B) {
+            System.out.println("A must be less than or equal to B.");
+        } else {
+            printCompositeNumbers(A, B);
+        }
+        scanner.close();
+    }
+    public static void printCompositeNumbers(int A, int B) {
+        boolean foundComposite = false;
+        for (int i = Math.max(A, 2); i <= B; i++) {
+            if (isComposite(i)) {
+                if (foundComposite) {
+                    System.out.print(", ");
+                }
+                System.out.print(i);
+                foundComposite = true;
+            }
+        }
+        if (!foundComposite) {
+            System.out.println("No composite numbers in the given range.");
+        }
+    }
+    public static boolean isComposite(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+}

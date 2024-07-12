@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class NthOddNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("N: ");
+        double input = scanner.nextDouble();
+        int N = (int) Math.round(input);
+        if (N < 0) {
+            System.out.println("N is negative. Please enter a non-negative integer.");
+            scanner.close();
+            return;
+        }
+        System.out.print("The first " + N + " odd numbers are: ");
+        for (int i = 0; i < N; i++) {
+            int oddNumber = 2 * i + 1;
+            System.out.print(oddNumber + " ");
+        }
+        System.out.println();
+        int nthOddAfterN = 2 * N + 1;
+        System.out.println("The " + N + "th odd number after " + N + " odd numbers is: " + nthOddAfterN);
+        scanner.close();
+    }
+}

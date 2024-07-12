@@ -1,0 +1,35 @@
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+public class MostFrequentWord {
+    public static void main(String[] args) {
+        String paragraph = "Ram hit a ball, the hit ball flew far after it was hit";
+        String[] banned = {"hit"};
+        String result = mostFrequentWord(paragraph, banned);
+        System.out.println("Output: " + result);
+    }
+    public static String mostFrequentWord(String paragraph, String[] banned) {
+        String[] words = paragraph.toLowerCase().split("\\W+");
+        Set<String> bannedSet = new HashSet<>();
+        for (String word : banned) {
+            bannedSet.add(word);
+        }
+        Map<String, Integer> wordCount = new HashMap<>();
+        for (String word : words) {
+            if (!bannedSet.contains(word)) {
+                wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
+            }
+        }
+        String mostFrequent = "";
+        int maxCount = 0;
+        for (Map.Entry<String, Integer> entry : wordCount.entrySet()) {
+            if (entry.getValue() > maxCount) {
+                mostFrequent = entry.getKey();
+                maxCount = entry.getValue();
+            }
+        }
+        mostFrequent = mostFrequent.substring(0, 1).toUpperCase() + mostFrequent.substring(1);
+        return mostFrequent;
+    }
+}

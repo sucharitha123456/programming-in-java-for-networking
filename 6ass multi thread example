@@ -1,0 +1,38 @@
+public class MultiThreadExample {
+    public static void main(String[] args) {
+        Thread thread1 = new Thread(new Task("Task 1"));
+        Thread thread2 = new Thread(new Task("Task 2"));
+        Thread thread3 = new Thread(new Task("Task 3"));
+        try {
+            thread1.start();
+            thread1.sleep(500);      
+            thread2.start();
+            thread2.sleep(500);           
+            thread3.start();
+            thread3.sleep(500);
+            thread1.join();
+            thread2.join();
+            thread3.join();
+        } catch (InterruptedException e) {
+            System.out.println("Thread interrupted: " + e.getMessage());
+        }
+        System.out.println("All threads have finished.");
+    }
+}
+class Task implements Runnable {
+    private String taskName;
+
+    public Task(String taskName) {
+        this.taskName = taskName;
+    }
+    @Override
+    public void run() {
+        System.out.println(taskName + " is running.");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            System.out.println("Thread interrupted: " + e.getMessage());
+        }
+        System.out.println(taskName + " has finished.");
+    }
+}

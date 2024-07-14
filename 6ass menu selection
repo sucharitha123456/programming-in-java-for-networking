@@ -1,0 +1,44 @@
+import java.util.Scanner;
+public class MenuSelection {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+        do {
+            // Display the menu
+            System.out.println("Select a statement to view its syntax:");
+            System.out.println("1. if statement");
+            System.out.println("2. switch statement");
+            System.out.println("3. for loop");
+            System.out.println("4. while loop");
+            System.out.println("5. do-while loop");
+            System.out.println("6. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("if statement syntax:\nif (condition) {\n    // code to be executed if condition is true\n}");
+                    break;
+                case 2:
+                    System.out.println("switch statement syntax:\nswitch (variable) {\n    case value1:\n        // code to be executed if variable equals value1\n        break;\n    case value2:\n        // code to be executed if variable equals value2\n        break;\n    default:\n        // code to be executed if variable does not equal any case\n}");
+                    break;
+                case 3:
+                    System.out.println("for loop syntax:\nfor (initialization; condition; update) {\n    // code to be executed\n}");
+                    break;
+                case 4:
+                    System.out.println("while loop syntax:\nwhile (condition) {\n    // code to be executed\n}");
+                    break;
+                case 5:
+                    System.out.println("do-while loop syntax:\ndo {\n    // code to be executed\n} while (condition);");
+                    break;
+                case 6:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please select again.");
+            }
+            System.out.println(); 
+        } while (choice != 6);
+
+        scanner.close();
+    }
+}

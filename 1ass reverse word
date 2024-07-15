@@ -1,0 +1,16 @@
+public class ReverseWord {
+    public static void main(String[] args) {
+        String input = "TEMPLE";
+        String reversed = reverseString(input);
+        System.out.println("Reverse String: " + reversed);
+    }
+    public static String reverseString(String str) {
+        char[] charArray = str.toCharArray();
+        int length = charArray.length;
+        char[] reversedArray = new char[length];
+        for (int i = 0; i < length; i++) {
+            reversedArray[i] = charArray[length - 1 - i];
+        }
+        return new String(reversedArray);
+    }
+}

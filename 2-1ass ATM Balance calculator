@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class ATMBalanceCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] denominations = new int[4];
+        int[] noteCounts = new int[4];
+        System.out.println("Enter the denominations in order of priority (from highest to lowest): ");
+        for (int i = 0; i < 4; i++) {
+            System.out.print((i + 1) + "st Denomination: ");
+            denominations[i] = scanner.nextInt();
+        }
+        for (int i = 0; i < 4; i++) {
+            System.out.print("Enter the number of " + denominations[i] + " notes: ");
+            noteCounts[i] = scanner.nextInt();
+        }
+        int totalAmount = 0;
+        for (int i = 0; i < 4; i++) {
+            totalAmount += denominations[i] * noteCounts[i];
+        }
+        System.out.println("Total available balance in the ATM: " + totalAmount);
+        scanner.close();
+    }
+}

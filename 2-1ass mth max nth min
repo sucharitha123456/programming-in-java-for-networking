@@ -1,0 +1,22 @@
+import java.util.Arrays;
+import java.util.Scanner;
+public class MthMaxNthMin {
+    public static void main(String[] args) {
+        int[] array = {14, 16, 87, 36, 25, 89, 34};
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the value of M: ");
+        int M = scanner.nextInt();
+        System.out.print("Enter the value of N: ");
+        int N = scanner.nextInt();
+        Arrays.sort(array);
+        int MthMax = array[array.length - M];
+        int NthMin = array[N - 1];
+        int sum = MthMax + NthMin;
+        int difference = MthMax - NthMin;
+        System.out.println(M + "stMaximum Number = " + MthMax);
+        System.out.println(N + "rdMinimum Number = " + NthMin);
+        System.out.println("Sum = " + sum);
+        System.out.println("Difference = " + difference);
+        scanner.close();
+    }
+}

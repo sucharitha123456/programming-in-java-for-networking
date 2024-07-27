@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class BinaryConversion {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Given Number (binary): ");
+        String binary = scanner.nextLine();
+        if (!binary.matches("[01]+")) {
+            System.out.println("Invalid binary number. Please enter a number consisting of only 0s and 1s.");
+        } else {
+            int decimal = Integer.parseInt(binary, 2);
+            String octal = Integer.toOctalString(decimal);
+            System.out.println("Decimal Number: " + decimal);
+            System.out.println("Octal Number: " + octal);
+        }
+        scanner.close();
+    }
+}

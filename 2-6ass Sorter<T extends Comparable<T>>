@@ -1,0 +1,32 @@
+import java.util.Arrays;
+public class Sorter<T extends Comparable<T>> {
+    private T[] data;
+    public Sorter(T[] data) {
+        this.data = data;
+    }
+    public void sort() {
+        Arrays.sort(data);
+    }
+    public void display() {
+        for (T item : data) {
+            System.out.print(item + " ");
+        }
+        System.out.println();
+    }
+    public static void main(String[] args) {
+        Integer[] intArray = {5, 3, 8, 1, 2};
+        Sorter<Integer> intSorter = new Sorter<>(intArray);
+        System.out.println("Integer Array before sorting:");
+        intSorter.display();
+        intSorter.sort();
+        System.out.println("Integer Array after sorting:");
+        intSorter.display();
+        String[] strArray = {"Banana", "Apple", "Cherry", "Mango"};
+        Sorter<String> strSorter = new Sorter<>(strArray);
+        System.out.println("String Array before sorting:");
+        strSorter.display();
+        strSorter.sort();
+        System.out.println("String Array after sorting:");
+        strSorter.display();
+    }
+}

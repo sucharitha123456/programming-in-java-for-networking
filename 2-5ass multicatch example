@@ -1,0 +1,17 @@
+public class MultiCatchExample {
+    public static void main(String[] args) {
+        try {
+            int a = 10, b = 0;
+            int result = a / b; 
+            System.out.println("Result: " + result);
+            int[] numbers = {1, 2, 3};
+            System.out.println(numbers[5]); 
+            String str = null;
+            System.out.println(str.length()); 
+        } catch (ArithmeticException | ArrayIndexOutOfBoundsException | NullPointerException e) {
+            System.out.println("Caught an exception: " + e);
+        } finally {
+            System.out.println("Finally block executed.");
+        }
+    }
+}

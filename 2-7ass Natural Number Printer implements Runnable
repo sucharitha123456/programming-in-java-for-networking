@@ -1,0 +1,35 @@
+class NaturalNumberPrinter implements Runnable {
+    private String threadName;
+    public NaturalNumberPrinter(String threadName) {
+        this.threadName = threadName;
+    }
+    public void run() {
+        try {
+            for (int i = 1; i <= 10; i++) {
+                System.out.println(threadName + ": " + i);
+                // Sleep for 500 milliseconds
+                Thread.sleep(500);
+            }
+        } catch (InterruptedException e) {
+            System.out.println(threadName + " interrupted.");
+        }
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Thread thread1 = new Thread(new NaturalNumberPrinter("Thread 1"));
+        Thread thread2 = new Thread(new NaturalNumberPrinter("Thread 2"));
+        Thread thread3 = new Thread(new NaturalNumberPrinter("Thread 3"));
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        try {
+            thread1.join();
+            thread2.join();
+            thread3.join();
+        } catch (InterruptedException e) {
+            System.out.println("Main thread interrupted.");
+        }
+        System.out.println("All threads have finished.");
+    }
+}

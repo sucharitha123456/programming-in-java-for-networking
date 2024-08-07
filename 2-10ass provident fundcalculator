@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class ProvidentFundCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.print("Enter the principal amount: ");
+            double principal = scanner.nextDouble();   
+            System.out.print("Enter the rate of interest (in %): ");
+            double rate = scanner.nextDouble();  
+            System.out.print("Enter the time period (in years): ");
+            int time = scanner.nextInt();  
+            if (principal < 0 || rate < 0 || time < 0) {
+                throw new IllegalArgumentException("Values cannot be negative.");
+            }
+            double interest = (principal * rate * time) / 100;           
+            System.out.println("The interest amount is: " + interest);
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        } finally {
+            System.out.println("Calculation completed.");
+            scanner.close();
+        }
+    }
+}
